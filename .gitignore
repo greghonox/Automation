@@ -1,0 +1,5 @@
+playground/
+__python__/
+.venv/
+venv/
+*.pyc
