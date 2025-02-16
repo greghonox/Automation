@@ -1,10 +1,4 @@
-import pytest
 from domain.robot_base import RobotBase
-
-
-@pytest.fixture
-def robot_base() -> RobotBase:
-    return RobotBase()
 
 
 def test_click(robot_base: RobotBase) -> None:

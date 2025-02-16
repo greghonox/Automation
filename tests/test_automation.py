@@ -1,10 +1,4 @@
-import pytest
 from frameworks import Automation
-
-
-@pytest.fixture
-def auto() -> Automation:
-    return Automation()
 
 
 def test_click(auto: Automation) -> None:
