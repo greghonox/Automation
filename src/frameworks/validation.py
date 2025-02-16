@@ -1,9 +1,10 @@
 from pytesseract import image_to_boxes, pytesseract
 from typing import Tuple, Callable, Optional
 from .logger import LogPerformance
+from pyautogui import screenshot
 
 
-pytesseract.tesseract_cmd = r"/usr/bin/tesseract"
+pytesseract.tesseract_cmd = r"C:\Users\honoragr\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
 
 
 class ValidationInputs:
@@ -15,11 +16,11 @@ class ValidationInputs:
         cls,
         text: str,
         func: Callable,
-        box: Optional[Tuple[int, int, int, int]] = None,
         last_check: Optional[bool] = False,
+        screen: Optional[screenshot] = None,
     ) -> None:
         func(text)
-        if not last_check:
+        if last_check:
             cls().log.info(f"Check typing: {text}")
-            text_screen = image_to_boxes(box)
-            text_screen == text, "Typing failed"
+            captured_text = image_to_boxes(screen)
+            captured_text == text, "Typing failed"

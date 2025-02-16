@@ -1,6 +1,7 @@
-# pylint: disable=no-member
 from frameworks import Automation
 from frameworks import LogPerformance
+from typing import Optional
+from pyautogui import screenshot
 
 
 class RobotBase(Automation):
@@ -9,8 +10,8 @@ class RobotBase(Automation):
         self.log.info("RobotBase initialized")
 
     @LogPerformance().log_performance
-    def perform_click(self, x: int, y: int) -> None:
-        super().click(x, y)
+    def perform_click(self, x: Optional[int]=None, y: Optional[int]=None, screen_shot:Optional[screenshot]=None) -> None:
+        super().click(x, y, screen_shot)
 
     @LogPerformance().log_performance
     def perform_double_click(self, x: int, y: int) -> None:
