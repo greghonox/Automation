@@ -1,4 +1,4 @@
-from pyautogui import click, doubleClick, rightClick, moveTo, write, locateOnScreen, Box
+from pyautogui import click, doubleClick, rightClick, moveTo, write
 
 
 class Automation:
@@ -22,7 +22,3 @@ class Automation:
     @staticmethod
     def type_text(text: str) -> None:
         write(text)
-
-    @staticmethod
-    def click_locate_screen(file_path: str) -> Box:
-        return locateOnScreen(file_path)
